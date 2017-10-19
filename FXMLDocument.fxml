@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import java.net.URL?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" 
+            fx:controller="hyon.FXMLDocumentController">  
+    <fx:define>
+        <ToggleGroup fx:id="genre"/>
+    </fx:define>  
+    <top>
+        <HBox>
+        <children>
+            <VBox>
+                <Label text="Database"/>
+                <GridPane>
+                    <Label text="URL:" 
+                        GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                    <TextField fx:id="url" text="jdbc:mysql://localhost:3306/ejd"
+                        GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+                    <Label text="User:" 
+                        GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                    <TextField fx:id="user" text="ejd"
+                        GridPane.rowIndex="1" GridPane.columnIndex="1"/> 
+                    <Label text="Password:" 
+                        GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                    <TextField fx:id="password" text="*********"
+                        GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+                    <Button fx:id="connect" text="Connect" onAction="#connect"
+                        GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+                    <Label fx:id="count" text="Movies:" GridPane.columnSpan="2"
+                        GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+                </GridPane>
+            </VBox>
+            <VBox>
+                <Label text="Year"/>
+                <ComboBox fx:id="yearBox" editable="false"/>
+                <Label text="Genre"/>
+                <GridPane>
+                    <RadioButton toggleGroup="$genre" text="Any"
+                                GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                    <RadioButton toggleGroup="$genre" text="Action"
+                                GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+                    <RadioButton toggleGroup="$genre" text="Adventure"
+                                GridPane.rowIndex="0" GridPane.columnIndex="2"/>
+                    <RadioButton toggleGroup="$genre" text="Adult"
+                                GridPane.rowIndex="0" GridPane.columnIndex="3"/>
+                    <RadioButton toggleGroup="$genre" text="Animation"
+                                GridPane.rowIndex="0" GridPane.columnIndex="4"/>
+                    <RadioButton toggleGroup="$genre" text="Comedy"
+                                GridPane.rowIndex="0" GridPane.columnIndex="5"/>
+                    <RadioButton toggleGroup="$genre" text="Crime"
+                                GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                    <RadioButton toggleGroup="$genre" text="Documentary"
+                                GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+                    <RadioButton toggleGroup="$genre" text="Drama"
+                                GridPane.rowIndex="1" GridPane.columnIndex="2"/>
+                    <RadioButton toggleGroup="$genre" text="Fantasy"
+                                GridPane.rowIndex="1" GridPane.columnIndex="3"/>
+                    <RadioButton toggleGroup="$genre" text="Family"
+                                GridPane.rowIndex="1" GridPane.columnIndex="4"/>
+                    <RadioButton toggleGroup="$genre" text="Film-Noir"
+                                GridPane.rowIndex="1" GridPane.columnIndex="5"/>
+                    <RadioButton toggleGroup="$genre" text="Horror"
+                                GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                    <RadioButton toggleGroup="$genre" text="Musical"
+                                GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+                    <RadioButton toggleGroup="$genre" text="Mystery"
+                                GridPane.rowIndex="2" GridPane.columnIndex="2"/>
+                    <RadioButton toggleGroup="$genre" text="Romance"
+                                GridPane.rowIndex="2" GridPane.columnIndex="3"/>
+                    <RadioButton toggleGroup="$genre" text="Sci-Fi"
+                                GridPane.rowIndex="2" GridPane.columnIndex="4"/>
+                    <RadioButton toggleGroup="$genre" text="Short"
+                                GridPane.rowIndex="2" GridPane.columnIndex="5"/>
+                    <RadioButton toggleGroup="$genre" text="Thriller"
+                                GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                    <RadioButton toggleGroup="$genre" text="War"
+                                GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+                    <RadioButton toggleGroup="$genre" text="Western"
+                                GridPane.rowIndex="3" GridPane.columnIndex="2"/>
+                    <RadioButton toggleGroup="$genre" text="Biography"
+                                GridPane.rowIndex="3" GridPane.columnIndex="3"/>
+                    <RadioButton toggleGroup="$genre" text="History"
+                                GridPane.rowIndex="3" GridPane.columnIndex="4"/>
+                    <RadioButton toggleGroup="$genre" text="Sport"
+                                GridPane.rowIndex="3" GridPane.columnIndex="5"/>
+                    <RadioButton toggleGroup="$genre" text="Reality-TV"
+                                GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+                    <RadioButton toggleGroup="$genre" text="News"
+                                GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+                    <RadioButton toggleGroup="$genre" text="Talk-Show"
+                                GridPane.rowIndex="4" GridPane.columnIndex="2"/>
+                    <RadioButton toggleGroup="$genre" text="Game-Show"
+                                GridPane.rowIndex="4" GridPane.columnIndex="3"/>
+                </GridPane>
+            </VBox>
+            </children>
+        </HBox>
+    </top>
+    <bottom>
+        <VBox fx:id="tableBox" alignment="center">
+            <children>
+                <TableView fx:id="movieTable">
+                    <columns>
+                        <TableColumn fx:id="titleColumn" text="Title"/>
+                        <TableColumn fx:id="genreColumn" text="Genre"/>
+                        <TableColumn fx:id="yearColumn" text="Year"/>
+                        <TableColumn fx:id="timeColumn" text="Running Time"/>
+                    </columns>
+                </TableView>                
+            </children>
+        </VBox>
+    </bottom>
+    <stylesheets>
+        <URL value="@/resource/main.css" />        
+    </stylesheets>  
+</BorderPane>
