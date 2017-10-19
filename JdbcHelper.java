@@ -10,7 +10,7 @@ package hyon;
  * A simple, light-weight JDBC utility class to interact with the DB
  * It supports both static statements and prepared statements.
  * 
- * Author: Hyoeun Lee (leehyoe@sheridancollege.ca)
+ * Author: Hyon Lee 
  * Created: 19th Sep. 2017
  * Updated: 24st Sep. 2017
 */
@@ -33,9 +33,9 @@ public class JdbcHelper {
     private String activeSql;
     private PreparedStatement activeStatement;
 
-
     //constructor doesn't have a return value
     public JdbcHelper() {
+        
         //They cannot be null always
         connection = null;
         statement = null;
@@ -44,8 +44,7 @@ public class JdbcHelper {
     }
     
     //make connection to the DB and return true/false
-    public boolean connect(String url, String user, String pass) {
-        
+    public boolean connect(String url, String user, String pass) {       
         boolean connected = false; // default is not connected
         
         //validation
@@ -86,6 +85,7 @@ public class JdbcHelper {
     }
     
     public ResultSet query(String sql) {
+        
        //initialize return value
         resultSet = null;
         errorMessage = "";
@@ -103,8 +103,7 @@ public class JdbcHelper {
                     + "to DB before calling query()");
                 return resultSet;
             }
-            resultSet = statement.executeQuery(sql);
-        
+            resultSet = statement.executeQuery(sql);        
         } catch(SQLException e) {
             System.err.println("[ERROR] " + e.getSQLState() + e.getMessage());
         } catch(Exception e) {
@@ -172,8 +171,7 @@ public class JdbcHelper {
             }
             if(params != null) 
                 setParametersForPreparedStatement(params);
-            rows = activeStatement.executeUpdate();
-            
+                rows = activeStatement.executeUpdate();            
         } catch(SQLException e){
             errorMessage = e.getSQLState() + ": "+ e.getMessage();
             System.err.println(errorMessage);
